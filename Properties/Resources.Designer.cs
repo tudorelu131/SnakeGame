@@ -63,6 +63,16 @@ namespace Snek.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] SnekBody {
+            get {
+                object obj = ResourceManager.GetObject("SnekBody", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] SnekHead {
             get {
                 object obj = ResourceManager.GetObject("SnekHead", resourceCulture);

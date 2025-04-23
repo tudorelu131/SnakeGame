@@ -118,6 +118,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\SnekBody.png" />
     <Content Include="Images\SnekHead.png" />
     <Content Include="Snek.exe" />
     <Content Include="Snek.pdb" />

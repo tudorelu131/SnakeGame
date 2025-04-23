@@ -128,17 +128,22 @@ namespace Snek
                 float y = GameArea.Top + i * cellHeight;
                 g.DrawLine(pen, GameArea.Left, y, GameArea.Right, y);
             }
-            foreach(var segment in snake.Take(snake.Count() - 1))
-            {
-                g.FillRectangle(snekBrush, segment);
-            }
+            
             byte[] snekHead = (byte[])Properties.Resources.ResourceManager.GetObject("SnekHead");
             using(MemoryStream ms = new MemoryStream(snekHead))
             {
                 Image img = Image.FromStream(ms);
                 g.DrawImage(img, Rectangle.Round(snake.Last.Value));
             }
-            
+            using (MemoryStream ms = new MemoryStream(Properties.Resources.SnekBody))
+            {
+                Image img = Image.FromStream(ms);
+                foreach (var segment in snake.Take(snake.Count() - 1))
+                {
+                    g.DrawImage(img, segment);
+                }
+            }
+
             g.FillRectangle(fruitBrush, fruit);
         }
         private void updatePositions()
