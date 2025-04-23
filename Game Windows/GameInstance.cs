@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -126,7 +127,13 @@ namespace Snek
             {
                 g.FillRectangle(snekBrush, segment);
             }
-            g.DrawImage(Image.FromFile("snekHead.png"), Rectangle.Round(snake.Last.Value));
+            byte[] snekHead = (byte[])Properties.Resources.ResourceManager.GetObject("SnekHead");
+            using(MemoryStream ms = new MemoryStream(snekHead))
+            {
+                Image img = Image.FromStream(ms);
+                g.DrawImage(img, Rectangle.Round(snake.Last.Value));
+            }
+            
             g.FillRectangle(fruitBrush, fruit);
         }
         private void updatePositions()
