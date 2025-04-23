@@ -57,6 +57,7 @@
             this.DoubleBuffered = true;
             this.Name = "GameInstance";
             this.Text = "GameInstance";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormClosed_Event);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.PaintEvent);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDownEvent);
             this.ResumeLayout(false);

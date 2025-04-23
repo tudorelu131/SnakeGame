@@ -98,6 +98,11 @@ namespace Snek
             );
         }
 
+        private void FormClosed_Event(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void PaintEvent(object sender, PaintEventArgs e)
         {
             Pen pen = new Pen(Color.Black, 2);
